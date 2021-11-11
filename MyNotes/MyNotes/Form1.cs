@@ -16,11 +16,12 @@ namespace MyNotes
 
         SQLiteConnection con;
         SQLiteCommand cmd;
+        public int stringCounter { get; set; } = 0;
         public Form1()
         {
             InitializeComponent();
             con = new SQLiteConnection(connectionString, true);
-            
+            pnlNotes.AutoSize = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -47,6 +48,37 @@ namespace MyNotes
             con.Open();
             cmd.ExecuteNonQuery();
             con.Close();
+        }
+
+        private void rtbHeading_KeyDown(object sender, KeyEventArgs e)
+        {
+            //stringCounter++;
+            //if (stringCounter > 34)
+            //{
+            //    MessageBox.Show("Sorry Only 34 characters are allowed");
+            //    if (e.KeyCode=>Keys.A || e.)
+            //    return;
+            //}
+        }
+
+        private void rtbHeading_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+            char key = e.KeyChar;
+            if (key == '\b')
+                stringCounter--;
+            else
+                stringCounter++;
+            
+
+            
+            if (rtbHeading.Text.Length >= 34)
+            {
+                MessageBox.Show("Sorry Only 33 characters are allowed");
+                e.Handled=true;
+            }
+           
+
         }
     }
 }
