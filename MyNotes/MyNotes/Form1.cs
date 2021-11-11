@@ -50,17 +50,6 @@ namespace MyNotes
             con.Close();
         }
 
-        private void rtbHeading_KeyDown(object sender, KeyEventArgs e)
-        {
-            //stringCounter++;
-            //if (stringCounter > 34)
-            //{
-            //    MessageBox.Show("Sorry Only 34 characters are allowed");
-            //    if (e.KeyCode=>Keys.A || e.)
-            //    return;
-            //}
-        }
-
         private void rtbHeading_KeyPress(object sender, KeyPressEventArgs e)
         {
             

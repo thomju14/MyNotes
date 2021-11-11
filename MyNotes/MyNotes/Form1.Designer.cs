@@ -151,7 +151,6 @@ namespace MyNotes
             this.rtbHeading.Size = new System.Drawing.Size(348, 42);
             this.rtbHeading.TabIndex = 0;
             this.rtbHeading.Text = "";
-            this.rtbHeading.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rtbHeading_KeyDown);
             this.rtbHeading.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.rtbHeading_KeyPress);
             // 
             // Form1
