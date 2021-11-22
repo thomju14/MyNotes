@@ -16,7 +16,7 @@ namespace MyNotesApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MyNotes());
+            Application.Run(new LoginPage());
         }
     }
 }
