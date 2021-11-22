@@ -10,3 +10,4 @@ C:\Users\Lenovo\OneDrive - Bow Valley College\Desktop\classes\Sem 3\SODV2101\Pro
 C:\Users\Lenovo\OneDrive - Bow Valley College\Desktop\classes\Sem 3\SODV2101\Project\MyNotes\MyNotesApp\obj\Debug\MyNotesApp.csproj.CoreCompileInputs.cache
 C:\Users\Lenovo\OneDrive - Bow Valley College\Desktop\classes\Sem 3\SODV2101\Project\MyNotes\MyNotesApp\obj\Debug\MyNotesApp.exe
 C:\Users\Lenovo\OneDrive - Bow Valley College\Desktop\classes\Sem 3\SODV2101\Project\MyNotes\MyNotesApp\obj\Debug\MyNotesApp.pdb
+C:\Users\Lenovo\OneDrive - Bow Valley College\Desktop\classes\Sem 3\SODV2101\Project\MyNotes\MyNotesApp\obj\Debug\MyNotesApp.LoginPage.resources
