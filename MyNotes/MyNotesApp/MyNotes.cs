@@ -17,26 +17,36 @@ namespace MyNotesApp
         public int stringCounter { get; set; } = 0;
         static SqlCommand command;
         static string query = "";
-        //static SqlCommand command = new SqlCommand(query,connection);
-        //command.ExecuteNonQuery();
+        DataTable dt;
+        
         public MyNotes()
         {
-            InitializeComponent();
-            pnlNotes.AutoSize = true;
-            connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\NotesDB.mdf;Integrated Security=True");
+            try
+            {
+                InitializeComponent();
+                pnlNotes.AutoSize = true;
+                connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\NotesDB.mdf;Integrated Security=True");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         private void MyNotes_Load(object sender, EventArgs e)
         {
-            connection = new SqlConnection(@"Data Source=.\SQLEXPRESS;" +
-                @"AttachDbFilename=|DataDirectory|\NotesDB.mdf;
-                Integrated Security=True;
-                Connect Timeout=30;
-                User Instance=True");
+            try
+            {
+                LoadDataTable();
+            }
+            catch (Exception)
+            {
 
-         
+                throw;
+            }
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void btnRead_Click(object sender, EventArgs e)
         {
             try
             {
@@ -48,53 +58,99 @@ namespace MyNotesApp
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
             try
             {
-
+                if (rtbHeading.Text != null && rtbHeading.Text != string.Empty)
+                {
+                    query = @"INSERT INTO Note (UserName,Title,Content,LastAccessed) VALUES ('fshafiq','" + rtbHeading.Text + "','" + richTextBox1.Text + "','" + DateTime.Now + "')";
+                    command = new SqlCommand();
+                    command.CommandType = CommandType.Text;
+                    command.CommandText = query;
+                    command.Connection = connection;
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                    LoadDataTable();
+                }
+                else
+                    MessageBox.Show("Please add some data");
                 
-                query = @"INSERT INTO Note (UserName,Title,Content,LastAccessed) VALUES ('fshafiq','" + rtbHeading.Text + "','" + richTextBox1.Text + "','" + DateTime.Now + "')";
-                command = new SqlCommand();
-                command.CommandType = CommandType.Text;
-                command.CommandText = query;
-                command.Connection = connection;
-                connection.Open();
-                command.ExecuteNonQuery();
-                connection.Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                MessageBox.Show(ex.Message);
             }
 
         }
 
         private void rtbHeading_KeyDown(object sender, KeyEventArgs e)
         {
-            //stringCounter++;
-            //if (stringCounter > 34)
-            //{
-            //    MessageBox.Show("Sorry Only 34 characters are allowed");
-            //    if (e.KeyCode=>Keys.A || e.)
-            //    return;
-            //}
+
         }
 
         private void rtbHeading_KeyPress(object sender, KeyPressEventArgs e)
         {
-
-            char key = e.KeyChar;
-            if (key == '\b')
-                stringCounter--;
-            else
-                stringCounter++;
-
-            if (rtbHeading.Text.Length >= 34)
+            try
             {
-                MessageBox.Show("Sorry Only 33 characters are allowed");
-                e.Handled = true;
+                char key = e.KeyChar;
+                if (key == '\b')
+                    stringCounter--;
+                else
+                    stringCounter++;
+
+                if (rtbHeading.Text.Length >= 34)
+                {
+                    MessageBox.Show("Sorry Only 33 characters are allowed");
+                    e.Handled = true;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
+        }
+        private void LoadDataTable()
+        {
+            try
+            {
+                dt = new DataTable();
+                dt.Columns.Add("Title", typeof(String));
+                
+
+                command = new SqlCommand();
+
+                query = @"SELECT Title from NOTE WHERE username=@userName";
+                command.Parameters.AddWithValue("@userName", "fshafiq");
+
+                command.CommandType = CommandType.Text;
+                command.CommandText = query;
+                command.Connection = connection;
+                connection.Open();
+
+                // int result = command.ExecuteNonQuery();
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        dt.Rows.Add(String.Format("{0}", reader["Title"]));
+                    }
+
+                }
+
+                connection.Close();
+
+                dataGridView1.DataSource = dt;
+                dataGridView1.Columns["Title"].Width = 109;
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
     }
