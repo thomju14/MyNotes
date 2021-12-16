@@ -80,7 +80,7 @@ namespace MyNotesApp
                 SqlCommand sqlCmd = new SqlCommand("UserAdd",sqlConnection);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
                 sqlCmd.Parameters.AddWithValue("@Username",TextBox_Username.Text.Trim());
-                sqlCmd.Parameters.AddWithValue("@Username",textbox_Password.Text.Trim());
+                sqlCmd.Parameters.AddWithValue("@Password",textbox_Password.Text.Trim());
                 sqlCmd.ExecuteNonQuery();
                 MessageBox.Show("Registration is sucessfull");
               
