@@ -34,6 +34,7 @@ namespace MyNotesApp
                 this.Text = user;
                 pnlNotes.AutoSize = true;
                 Notes.Clear();
+
             }
             catch (Exception)
             {
@@ -111,7 +112,7 @@ namespace MyNotesApp
             }
         }
 
-        private void bunifuThinButton21_Click(object sender, EventArgs e)
+        private void btnRead_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < noteData.Rows.Count; i++)
             {
@@ -125,6 +126,7 @@ namespace MyNotesApp
                         {
                             rtbHeading.Text = readTitle;
                             richTextBox1.Text = noteData.Rows[i]["Content"].ToString();
+                            LoadDropDownBtn(rtbHeading.Text, richTextBox1.Text);
                         }
                         else
                         {
@@ -135,6 +137,7 @@ namespace MyNotesApp
                     {
                         rtbHeading.Text = readTitle;
                         richTextBox1.Text = noteData.Rows[i]["Content"].ToString();
+                        LoadDropDownBtn(rtbHeading.Text, richTextBox1.Text);
                     }
                 }
                 rtbHeading.ReadOnly = true;
@@ -145,7 +148,7 @@ namespace MyNotesApp
             }
         }
 
-        private void bunifuThinButton23_Click(object sender, EventArgs e)
+        private void btnPasswordPro_Click(object sender, EventArgs e)
         {
             newpass = Interaction.InputBox("Enter Password:", "Create Password", "");
             if (newpass == "")
@@ -158,7 +161,7 @@ namespace MyNotesApp
             }
         }
 
-        private void bunifuThinButton22_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
             if (ValidateChildren(ValidationConstraints.Enabled))
             {
@@ -394,6 +397,85 @@ namespace MyNotesApp
             form.Show();
             this.Hide();
             form.Closed += (s, args) => Application.Exit();
+        }
+        private void LoadDropDownBtn(string heading, string body)
+        {
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                SqlConnection con = new SqlConnection(dbConnectionString);
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "SELECT * FROM [Login] WHERE Username!=@userName";
+                cmd.Parameters.AddWithValue("@userName", user);
+
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                List<string> lst = new List<string>();
+                while (reader.Read())
+                {
+                    lst.Add(reader.GetString(0));
+                }
+                btnDropdown.DataSource = lst;
+            }
+           
+           
+        }
+
+        private void btnDropdown_SelectedValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDropdown_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void btnShare_Click(object sender, EventArgs e)
+        {
+            //rtbHeading.Text, richTextBox1.Text
+            query = @"INSERT INTO Note(Username,Title,Content) VALUES(@user,@title,@content)";
+            param.Clear();
+            param.Add(new SqlParameter
+            {
+                ParameterName = "@content",
+                SqlDbType = SqlDbType.NText,
+                SqlValue = richTextBox1.Text
+            });
+            param.Add(new SqlParameter
+            {
+                ParameterName = "@user",
+                SqlDbType = SqlDbType.NVarChar,
+                SqlValue = btnDropdown.SelectedValue.ToString()
+            });
+            param.Add(new SqlParameter
+            {
+                ParameterName = "@title",
+                SqlDbType = SqlDbType.NVarChar,
+                SqlValue = rtbHeading.Text
+            });
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(dbConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        connection.Open();
+                        if (param != null)
+                            command.Parameters.AddRange(param.ToArray());
+                        command.ExecuteNonQuery();
+                        connection.Close();
+                        MessageBox.Show($"Note has been shared with {btnDropdown.SelectedValue.ToString()}");
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

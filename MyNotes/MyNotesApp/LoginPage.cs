@@ -15,6 +15,7 @@ namespace MyNotesApp
     public partial class LoginPage : Form
     {
         String dbConnectionString = "";
+
         DataTable login = new DataTable();
 
         public LoginPage()
@@ -31,42 +32,70 @@ namespace MyNotesApp
         {
             string username = TextBox_Username.Text;
             string password = textbox_Password.Text;
-            string query = "SELECT * from Login";
-            using (SqlConnection sqlConnection = new SqlConnection(dbConnectionString))
+
+            //string query = "SELECT * from Login";
+            //using (SqlConnection sqlConnection = new SqlConnection(dbConnectionString))
+            //{
+            //    using (SqlDataAdapter Adapter = new SqlDataAdapter(query, sqlConnection))
+            //    {
+
+            //        sqlConnection.Open();
+            //        Adapter.Fill(login);
+            //        sqlConnection.Close();
+
+            //        int count = 0;
+            //        for (int i = 0; i < login.Rows.Count; i++)
+            //        {
+            //            if (login.Rows[i]["Username"].ToString() == username)
+            //            {
+            //                count++;
+            //                if (login.Rows[i]["Password"].ToString() == password)
+            //                {
+            //                    MyNotes notes = new MyNotes(username);
+            //                    this.Hide();
+            //                    notes.Show();
+            //                    notes.Closed += (s, args) => Application.Exit();
+            //                }
+            //                else
+            //                {
+            //                    //Message Password incorrect
+            //                    MessageBox.Show("Password incorrect");
+            //                }
+            //            }
+            //        }
+            //        if (count == 0)
+            //        {
+            //            //Message username not found
+            //            MessageBox.Show("Username not found");
+            //        }
+
+
+
+            using (SqlCommand cmd = new SqlCommand())
             {
-                using (SqlDataAdapter Adapter = new SqlDataAdapter(query, sqlConnection))
+                SqlConnection con = new SqlConnection(dbConnectionString);
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "SELECT * FROM Login WHERE Username=@userName AND Password=@Password";
+                cmd.Parameters.AddWithValue("@userName", username);
+                cmd.Parameters.AddWithValue("@Password", password);
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
                 {
-
-                    sqlConnection.Open();
-                    Adapter.Fill(login);
-                    sqlConnection.Close();
-
-                    int count = 0;
-                    for (int i = 0; i < login.Rows.Count; i++)
-                    {
-                        if (login.Rows[i]["Username"].ToString() == username)
-                        {
-                            count++;
-                            if (login.Rows[i]["Password"].ToString() == password)
-                            {
-                                MyNotes notes = new MyNotes(username);
-                                this.Hide();
-                                notes.Show();
-                                notes.Closed += (s, args) => Application.Exit();
-                            }
-                            else
-                            {
-                                //Message Password incorrect
-                                MessageBox.Show("Password incorrect");
-                            }
-                        }
-                    }
-                    if (count == 0)
-                    {
-                        //Message username not found
-                        MessageBox.Show("Username not found");
-                    }
+                    MyNotes notes = new MyNotes(username);
+                    this.Hide();
+                    notes.Show();
+                    notes.Closed += (s, args) => Application.Exit();
                 }
+
+                else
+                {
+                    MessageBox.Show("Invalid username or password");
+
+                }
+                con.Close();
             }
 
         }
@@ -77,8 +106,15 @@ namespace MyNotesApp
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
+
             string username = TextBox_Username.Text;
             string password = textbox_Password.Text;
+
+            if (username == string.Empty || password == string.Empty)
+            {
+                MessageBox.Show("Either username or password is empty");
+                return;
+            }
             int count = 0;
             string query = "SELECT * from Login";
             using (SqlConnection sqlConnection = new SqlConnection(dbConnectionString))
