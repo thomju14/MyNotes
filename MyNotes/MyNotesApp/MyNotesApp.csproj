@@ -181,6 +181,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>NotesDBDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="NoteTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NoteTab.Designer.cs">
+      <DependentUpon>NoteTab.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="LoginPage.resx">
@@ -188,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyNotes.resx">
       <DependentUpon>MyNotes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NoteTab.resx">
+      <DependentUpon>NoteTab.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -29,10 +29,35 @@ namespace MyNotesApp
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.Title = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // Title
+            // 
+            this.Title.AutoSize = true;
+            this.Title.Font = new System.Drawing.Font("Perpetua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Title.Location = new System.Drawing.Point(3, 10);
+            this.Title.Name = "Title";
+            this.Title.Size = new System.Drawing.Size(89, 23);
+            this.Title.TabIndex = 0;
+            this.Title.Text = "NoteTitle";
+            this.Title.Click += new System.EventHandler(this.Title_Click);
+            // 
+            // NoteTab
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.Title);
+            this.Name = "NoteTab";
+            this.Size = new System.Drawing.Size(180, 100);
+            this.Load += new System.EventHandler(this.NoteTab_Load);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Label Title;
     }
 }
