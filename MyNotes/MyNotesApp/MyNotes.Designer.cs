@@ -121,7 +121,7 @@ namespace MyNotesApp
             this.NoteList.EnableHeadersVisualStyles = false;
             this.NoteList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
             this.NoteList.HeaderBackColor = System.Drawing.Color.DodgerBlue;
-            this.NoteList.HeaderBgColor = System.Drawing.Color.Empty;
+           
             this.NoteList.HeaderForeColor = System.Drawing.Color.White;
             this.NoteList.Location = new System.Drawing.Point(3, 2);
             this.NoteList.Name = "NoteList";

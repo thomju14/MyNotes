@@ -29,7 +29,6 @@ namespace MyNotesApp
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginPage));
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
@@ -38,19 +37,22 @@ namespace MyNotesApp
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginPage));
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.LblUsername = new System.Windows.Forms.Label();
             this.LblPassword = new System.Windows.Forms.Label();
             this.lblMessage = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.bunifuPictureBox1 = new Bunifu.UI.WinForms.BunifuPictureBox();
-            this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
+            this.bunifuPictureBox1 = new Bunifu.UI.WinForms.BunifuPictureBox();
             this.TextBox_Username = new Bunifu.UI.WinForms.BunifuTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textbox_Password = new Bunifu.UI.WinForms.BunifuTextBox();
             this.bunifuButton1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.btnSignUp = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -94,6 +96,7 @@ namespace MyNotesApp
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.panel1.Controls.Add(this.btnSignUp);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.bunifuLabel1);
@@ -103,6 +106,38 @@ namespace MyNotesApp
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(521, 621);
             this.panel1.TabIndex = 9;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Lavender;
+            this.panel3.Location = new System.Drawing.Point(141, 490);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(215, 1);
+            this.panel3.TabIndex = 3;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Lavender;
+            this.panel2.Location = new System.Drawing.Point(113, 456);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(279, 1);
+            this.panel2.TabIndex = 2;
+            // 
+            // bunifuLabel1
+            // 
+            this.bunifuLabel1.AllowParentOverrides = false;
+            this.bunifuLabel1.AutoEllipsis = false;
+            this.bunifuLabel1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuLabel1.CursorType = System.Windows.Forms.Cursors.Default;
+            this.bunifuLabel1.Font = new System.Drawing.Font("Segoe UI Historic", 18F);
+            this.bunifuLabel1.Location = new System.Drawing.Point(103, 397);
+            this.bunifuLabel1.Name = "bunifuLabel1";
+            this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel1.Size = new System.Drawing.Size(299, 32);
+            this.bunifuLabel1.TabIndex = 1;
+            this.bunifuLabel1.Text = "Start and control your notes";
+            this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel1.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
             // bunifuPictureBox1
             // 
@@ -119,37 +154,6 @@ namespace MyNotesApp
             this.bunifuPictureBox1.TabIndex = 0;
             this.bunifuPictureBox1.TabStop = false;
             this.bunifuPictureBox1.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Square;
-            // 
-            // bunifuLabel1
-            // 
-            this.bunifuLabel1.AllowParentOverrides = false;
-            this.bunifuLabel1.AutoEllipsis = false;
-            this.bunifuLabel1.CursorType = System.Windows.Forms.Cursors.Default;
-            this.bunifuLabel1.Font = new System.Drawing.Font("Segoe UI Historic", 18F);
-            this.bunifuLabel1.Location = new System.Drawing.Point(103, 397);
-            this.bunifuLabel1.Name = "bunifuLabel1";
-            this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel1.Size = new System.Drawing.Size(299, 32);
-            this.bunifuLabel1.TabIndex = 1;
-            this.bunifuLabel1.Text = "Start and control your notes";
-            this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.bunifuLabel1.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Lavender;
-            this.panel2.Location = new System.Drawing.Point(113, 456);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(279, 1);
-            this.panel2.TabIndex = 2;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Lavender;
-            this.panel3.Location = new System.Drawing.Point(141, 490);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(215, 1);
-            this.panel3.TabIndex = 3;
             // 
             // TextBox_Username
             // 
@@ -330,11 +334,11 @@ namespace MyNotesApp
             this.bunifuButton1.ColorContrastOnClick = 45;
             this.bunifuButton1.ColorContrastOnHover = 45;
             this.bunifuButton1.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges1.BottomLeft = true;
-            borderEdges1.BottomRight = true;
-            borderEdges1.TopLeft = true;
-            borderEdges1.TopRight = true;
-            this.bunifuButton1.CustomizableEdges = borderEdges1;
+            borderEdges2.BottomLeft = true;
+            borderEdges2.BottomRight = true;
+            borderEdges2.TopLeft = true;
+            borderEdges2.TopRight = true;
+            this.bunifuButton1.CustomizableEdges = borderEdges2;
             this.bunifuButton1.DialogResult = System.Windows.Forms.DialogResult.None;
             this.bunifuButton1.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.bunifuButton1.DisabledFillColor = System.Drawing.Color.Empty;
@@ -403,6 +407,98 @@ namespace MyNotesApp
             this.bunifuButton1.UseDefaultRadiusAndThickness = true;
             this.bunifuButton1.Click += new System.EventHandler(this.BtnLogin_Click);
             // 
+            // btnSignUp
+            // 
+            this.btnSignUp.AllowAnimations = true;
+            this.btnSignUp.AllowMouseEffects = true;
+            this.btnSignUp.AllowToggling = false;
+            this.btnSignUp.AnimationSpeed = 200;
+            this.btnSignUp.AutoGenerateColors = false;
+            this.btnSignUp.AutoRoundBorders = false;
+            this.btnSignUp.AutoSizeLeftIcon = true;
+            this.btnSignUp.AutoSizeRightIcon = true;
+            this.btnSignUp.BackColor = System.Drawing.Color.Transparent;
+            this.btnSignUp.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
+            this.btnSignUp.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSignUp.BackgroundImage")));
+            this.btnSignUp.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.btnSignUp.ButtonText = "Sign Up";
+            this.btnSignUp.ButtonTextMarginLeft = 0;
+            this.btnSignUp.ColorContrastOnClick = 45;
+            this.btnSignUp.ColorContrastOnHover = 45;
+            this.btnSignUp.Cursor = System.Windows.Forms.Cursors.Default;
+            borderEdges1.BottomLeft = true;
+            borderEdges1.BottomRight = true;
+            borderEdges1.TopLeft = true;
+            borderEdges1.TopRight = true;
+            this.btnSignUp.CustomizableEdges = borderEdges1;
+            this.btnSignUp.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnSignUp.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.btnSignUp.DisabledFillColor = System.Drawing.Color.Empty;
+            this.btnSignUp.DisabledForecolor = System.Drawing.Color.Empty;
+            this.btnSignUp.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
+            this.btnSignUp.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSignUp.ForeColor = System.Drawing.Color.Navy;
+            this.btnSignUp.IconLeft = null;
+            this.btnSignUp.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSignUp.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.btnSignUp.IconLeftPadding = new System.Windows.Forms.Padding(11, 3, 3, 3);
+            this.btnSignUp.IconMarginLeft = 11;
+            this.btnSignUp.IconPadding = 10;
+            this.btnSignUp.IconRight = null;
+            this.btnSignUp.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSignUp.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.btnSignUp.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
+            this.btnSignUp.IconSize = 25;
+            this.btnSignUp.IdleBorderColor = System.Drawing.Color.Empty;
+            this.btnSignUp.IdleBorderRadius = 0;
+            this.btnSignUp.IdleBorderThickness = 0;
+            this.btnSignUp.IdleFillColor = System.Drawing.Color.Empty;
+            this.btnSignUp.IdleIconLeftImage = null;
+            this.btnSignUp.IdleIconRightImage = null;
+            this.btnSignUp.IndicateFocus = false;
+            this.btnSignUp.Location = new System.Drawing.Point(170, 526);
+            this.btnSignUp.Name = "btnSignUp";
+            this.btnSignUp.OnDisabledState.BorderColor = System.Drawing.Color.Red;
+            this.btnSignUp.OnDisabledState.BorderRadius = 1;
+            this.btnSignUp.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.btnSignUp.OnDisabledState.BorderThickness = 1;
+            this.btnSignUp.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.btnSignUp.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.btnSignUp.OnDisabledState.IconLeftImage = null;
+            this.btnSignUp.OnDisabledState.IconRightImage = null;
+            this.btnSignUp.onHoverState.BorderColor = System.Drawing.Color.Gold;
+            this.btnSignUp.onHoverState.BorderRadius = 1;
+            this.btnSignUp.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.btnSignUp.onHoverState.BorderThickness = 1;
+            this.btnSignUp.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnSignUp.onHoverState.ForeColor = System.Drawing.Color.DarkGray;
+            this.btnSignUp.onHoverState.IconLeftImage = null;
+            this.btnSignUp.onHoverState.IconRightImage = null;
+            this.btnSignUp.OnIdleState.BorderColor = System.Drawing.Color.Gold;
+            this.btnSignUp.OnIdleState.BorderRadius = 1;
+            this.btnSignUp.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.btnSignUp.OnIdleState.BorderThickness = 1;
+            this.btnSignUp.OnIdleState.FillColor = System.Drawing.Color.Gold;
+            this.btnSignUp.OnIdleState.ForeColor = System.Drawing.Color.Navy;
+            this.btnSignUp.OnIdleState.IconLeftImage = null;
+            this.btnSignUp.OnIdleState.IconRightImage = null;
+            this.btnSignUp.OnPressedState.BorderColor = System.Drawing.Color.Goldenrod;
+            this.btnSignUp.OnPressedState.BorderRadius = 1;
+            this.btnSignUp.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.btnSignUp.OnPressedState.BorderThickness = 1;
+            this.btnSignUp.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            this.btnSignUp.OnPressedState.ForeColor = System.Drawing.Color.White;
+            this.btnSignUp.OnPressedState.IconLeftImage = null;
+            this.btnSignUp.OnPressedState.IconRightImage = null;
+            this.btnSignUp.Size = new System.Drawing.Size(171, 37);
+            this.btnSignUp.TabIndex = 15;
+            this.btnSignUp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnSignUp.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnSignUp.TextMarginLeft = 0;
+            this.btnSignUp.TextPadding = new System.Windows.Forms.Padding(0);
+            this.btnSignUp.UseDefaultRadiusAndThickness = true;
+            this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
+            // 
             // LoginPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -417,7 +513,7 @@ namespace MyNotesApp
             this.Controls.Add(this.lblMessage);
             this.Controls.Add(this.LblPassword);
             this.Controls.Add(this.LblUsername);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "LoginPage";
             this.Text = "LoginPage";
             this.Load += new System.EventHandler(this.LoginPage_Load);
@@ -444,5 +540,6 @@ namespace MyNotesApp
         private System.Windows.Forms.PictureBox pictureBox1;
         private Bunifu.UI.WinForms.BunifuTextBox textbox_Password;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton bunifuButton1;
+        private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnSignUp;
     }
 }

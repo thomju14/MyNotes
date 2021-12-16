@@ -68,5 +68,26 @@ namespace MyNotesApp
         private void bunifuTextBox1_TextChanged(object sender, EventArgs e)
         {
                     }
+
+        private void btnSignUp_Click(object sender, EventArgs e)
+        {
+            string username = TextBox_Username.Text;
+            string password = textbox_Password.Text;
+           
+            using (SqlConnection sqlConnection = new SqlConnection(dbConnectionString))
+            {
+                sqlConnection.Open();
+                SqlCommand sqlCmd = new SqlCommand("UserAdd",sqlConnection);
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                sqlCmd.Parameters.AddWithValue("@Username",TextBox_Username.Text.Trim());
+                sqlCmd.Parameters.AddWithValue("@Username",textbox_Password.Text.Trim());
+                sqlCmd.ExecuteNonQuery();
+                MessageBox.Show("Registration is sucessfull");
+              
+
+
+            }
+        }
+      
     }
 }
