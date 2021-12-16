@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
+using Microsoft.VisualBasic;
 
 namespace MyNotesApp    
 {
@@ -111,8 +112,25 @@ namespace MyNotesApp
             {
                 if (noteData.Rows[i]["Title"].ToString() == readTitle)
                 {
-                    rtbHeading.Text = readTitle;
-                    richTextBox1.Text = noteData.Rows[i]["Content"].ToString();
+                    string password = noteData.Rows[i]["Password"].ToString().Trim();
+                    if (password != "")
+                    {
+                        string pass = Interaction.InputBox("Enter Password:", "Password Protected Note", "");
+                        if (pass == password)
+                        {
+                            rtbHeading.Text = readTitle;
+                            richTextBox1.Text = noteData.Rows[i]["Content"].ToString();
+                        }
+                        else
+                        {
+                            MessageBox.Show("The password was incorrect. Try Again later", "Wrong input", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                    }
+                    else
+                    {
+                        rtbHeading.Text = readTitle;
+                        richTextBox1.Text = noteData.Rows[i]["Content"].ToString();
+                    }
                 }
             }
             foreach (NoteTab note in Notes)
