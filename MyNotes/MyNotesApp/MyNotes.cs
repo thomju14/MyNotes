@@ -166,22 +166,26 @@ namespace MyNotesApp
         {
             if (ValidateChildren(ValidationConstraints.Enabled))
             {
-                //old note saved/edited
-                if (readTitle != "")
+                int c = 0;
+                for(int i=0;i<noteData.Rows.Count;i++)
                 {
-                    //not password protected
-                    if (newpass == "")
+                    if(noteData.Rows[i]["Title"].ToString().Trim()==rtbHeading.Text)
                     {
-                        UpdateWithoutPassword();
-                    }
-                    //password protected
-                    else
-                    {
-                        UpdateWithPassword();
+                        c++;
+                        if (newpass == "")
+                        {
+                            UpdateWithoutPassword();
+                        }
+                        //password protected
+                        else
+                        {
+                            UpdateWithPassword();
+                        }
                     }
                 }
+                
                 //new note
-                else
+                if(c==0)
                 {
                     //not password protected
                     if (newpass == "")
@@ -397,6 +401,7 @@ namespace MyNotesApp
         {
             rtbHeading.Text = "";
             richTextBox1.Text = "";
+            rtbHeading.ReadOnly = false;
             //MyNotes form = new MyNotes(user);
             //form.Show();
             //this.Hide();
