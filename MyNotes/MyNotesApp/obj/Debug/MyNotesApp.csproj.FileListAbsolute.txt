@@ -1,5 +1,3 @@
-C:\Users\Lenovo\OneDrive - Bow Valley College\Desktop\classes\Sem 3\SODV2101\Project\MyNotes\MyNotesApp\bin\Debug\NotesDB.mdf
-C:\Users\Lenovo\OneDrive - Bow Valley College\Desktop\classes\Sem 3\SODV2101\Project\MyNotes\MyNotesApp\bin\Debug\NotesDB_log.ldf
 C:\Users\Lenovo\OneDrive - Bow Valley College\Desktop\classes\Sem 3\SODV2101\Project\MyNotes\MyNotesApp\bin\Debug\MyNotesApp.exe.config
 C:\Users\Lenovo\OneDrive - Bow Valley College\Desktop\classes\Sem 3\SODV2101\Project\MyNotes\MyNotesApp\bin\Debug\MyNotesApp.exe
 C:\Users\Lenovo\OneDrive - Bow Valley College\Desktop\classes\Sem 3\SODV2101\Project\MyNotes\MyNotesApp\bin\Debug\MyNotesApp.pdb
@@ -161,3 +159,5 @@ C:\Users\Lenovo\OneDrive - Bow Valley College\Desktop\classes\Sem 3\SODV2101\Pro
 C:\Users\Lenovo\OneDrive - Bow Valley College\Desktop\classes\Sem 3\SODV2101\Project\MyNotes\MyNotesApp\obj\Debug\MyNotesApp.exe.licenses
 C:\Users\Lenovo\OneDrive - Bow Valley College\Desktop\classes\Sem 3\SODV2101\Project\MyNotes\MyNotesApp\obj\Debug\MyNotesApp.csproj.CopyComplete
 C:\Users\Lenovo\OneDrive - Bow Valley College\Desktop\classes\Sem 3\SODV2101\Project\MyNotes\MyNotesApp\obj\Debug\MyNotesApp.NoteTab.resources
+C:\Users\Lenovo\OneDrive - Bow Valley College\Desktop\classes\Sem 3\SODV2101\Project\MyNotes\MyNotesApp\bin\Debug\NotesDB.mdf
+C:\Users\Lenovo\OneDrive - Bow Valley College\Desktop\classes\Sem 3\SODV2101\Project\MyNotes\MyNotesApp\bin\Debug\NotesDB_log.ldf

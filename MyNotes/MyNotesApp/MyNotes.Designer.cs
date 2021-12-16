@@ -32,6 +32,7 @@ namespace MyNotesApp
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MyNotes));
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
@@ -40,16 +41,15 @@ namespace MyNotesApp
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MyNotes));
             this.pnlSideBar = new System.Windows.Forms.Panel();
             this.NoteList = new Bunifu.UI.WinForms.BunifuDataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.bunifuThinButton23 = new Bunifu.Framework.UI.BunifuThinButton2();
             this.bunifuThinButton22 = new Bunifu.Framework.UI.BunifuThinButton2();
             this.bunifuThinButton21 = new Bunifu.Framework.UI.BunifuThinButton2();
             this.rtbHeading = new Bunifu.UI.WinForms.BunifuTextBox();
             this.richTextBox1 = new Bunifu.UI.WinForms.BunifuTextBox();
             this.pnlNotes = new System.Windows.Forms.Panel();
-            this.bunifuThinButton23 = new Bunifu.Framework.UI.BunifuThinButton2();
             this.pnlSideBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NoteList)).BeginInit();
             this.panel1.SuspendLayout();
@@ -63,8 +63,9 @@ namespace MyNotesApp
             this.pnlSideBar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlSideBar.Controls.Add(this.NoteList);
             this.pnlSideBar.Location = new System.Drawing.Point(0, 0);
+            this.pnlSideBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlSideBar.Name = "pnlSideBar";
-            this.pnlSideBar.Size = new System.Drawing.Size(159, 531);
+            this.pnlSideBar.Size = new System.Drawing.Size(211, 653);
             this.pnlSideBar.TabIndex = 3;
             // 
             // NoteList
@@ -123,14 +124,15 @@ namespace MyNotesApp
             this.NoteList.HeaderBackColor = System.Drawing.Color.DodgerBlue;
             this.NoteList.HeaderBgColor = System.Drawing.Color.Empty;
             this.NoteList.HeaderForeColor = System.Drawing.Color.White;
-            this.NoteList.Location = new System.Drawing.Point(3, 2);
+            this.NoteList.Location = new System.Drawing.Point(4, 2);
+            this.NoteList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.NoteList.Name = "NoteList";
             this.NoteList.ReadOnly = true;
             this.NoteList.RowHeadersVisible = false;
             this.NoteList.RowHeadersWidth = 51;
             this.NoteList.RowTemplate.Height = 40;
             this.NoteList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.NoteList.Size = new System.Drawing.Size(151, 526);
+            this.NoteList.Size = new System.Drawing.Size(201, 647);
             this.NoteList.TabIndex = 6;
             this.NoteList.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
             // 
@@ -146,9 +148,37 @@ namespace MyNotesApp
             this.panel1.Controls.Add(this.rtbHeading);
             this.panel1.Controls.Add(this.pnlSideBar);
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1111, 528);
+            this.panel1.Size = new System.Drawing.Size(1481, 650);
             this.panel1.TabIndex = 6;
+            // 
+            // bunifuThinButton23
+            // 
+            this.bunifuThinButton23.ActiveBorderThickness = 1;
+            this.bunifuThinButton23.ActiveCornerRadius = 20;
+            this.bunifuThinButton23.ActiveFillColor = System.Drawing.Color.Green;
+            this.bunifuThinButton23.ActiveForecolor = System.Drawing.Color.Brown;
+            this.bunifuThinButton23.ActiveLineColor = System.Drawing.Color.Navy;
+            this.bunifuThinButton23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.bunifuThinButton23.BackColor = System.Drawing.SystemColors.Control;
+            this.bunifuThinButton23.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton23.BackgroundImage")));
+            this.bunifuThinButton23.ButtonText = "Password Protect";
+            this.bunifuThinButton23.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuThinButton23.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuThinButton23.ForeColor = System.Drawing.Color.Honeydew;
+            this.bunifuThinButton23.IdleBorderThickness = 1;
+            this.bunifuThinButton23.IdleCornerRadius = 20;
+            this.bunifuThinButton23.IdleFillColor = System.Drawing.Color.DodgerBlue;
+            this.bunifuThinButton23.IdleForecolor = System.Drawing.Color.Honeydew;
+            this.bunifuThinButton23.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton23.Location = new System.Drawing.Point(1079, 580);
+            this.bunifuThinButton23.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.bunifuThinButton23.Name = "bunifuThinButton23";
+            this.bunifuThinButton23.Size = new System.Drawing.Size(241, 50);
+            this.bunifuThinButton23.TabIndex = 8;
+            this.bunifuThinButton23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bunifuThinButton23.Click += new System.EventHandler(this.bunifuThinButton23_Click);
             // 
             // bunifuThinButton22
             // 
@@ -169,12 +199,13 @@ namespace MyNotesApp
             this.bunifuThinButton22.IdleFillColor = System.Drawing.Color.DodgerBlue;
             this.bunifuThinButton22.IdleForecolor = System.Drawing.Color.Honeydew;
             this.bunifuThinButton22.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton22.Location = new System.Drawing.Point(518, 471);
-            this.bunifuThinButton22.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bunifuThinButton22.Location = new System.Drawing.Point(691, 580);
+            this.bunifuThinButton22.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.bunifuThinButton22.Name = "bunifuThinButton22";
-            this.bunifuThinButton22.Size = new System.Drawing.Size(181, 41);
+            this.bunifuThinButton22.Size = new System.Drawing.Size(241, 50);
             this.bunifuThinButton22.TabIndex = 7;
             this.bunifuThinButton22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bunifuThinButton22.Click += new System.EventHandler(this.bunifuThinButton22_Click);
             // 
             // bunifuThinButton21
             // 
@@ -195,10 +226,10 @@ namespace MyNotesApp
             this.bunifuThinButton21.IdleFillColor = System.Drawing.Color.DodgerBlue;
             this.bunifuThinButton21.IdleForecolor = System.Drawing.Color.Honeydew;
             this.bunifuThinButton21.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.Location = new System.Drawing.Point(239, 471);
-            this.bunifuThinButton21.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bunifuThinButton21.Location = new System.Drawing.Point(319, 580);
+            this.bunifuThinButton21.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.bunifuThinButton21.Name = "bunifuThinButton21";
-            this.bunifuThinButton21.Size = new System.Drawing.Size(181, 41);
+            this.bunifuThinButton21.Size = new System.Drawing.Size(241, 50);
             this.bunifuThinButton21.TabIndex = 6;
             this.bunifuThinButton21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bunifuThinButton21.Click += new System.EventHandler(this.bunifuThinButton21_Click);
@@ -233,7 +264,8 @@ namespace MyNotesApp
             this.rtbHeading.IconRight = null;
             this.rtbHeading.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.rtbHeading.Lines = new string[0];
-            this.rtbHeading.Location = new System.Drawing.Point(164, 15);
+            this.rtbHeading.Location = new System.Drawing.Point(219, 18);
+            this.rtbHeading.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rtbHeading.MaxLength = 32767;
             this.rtbHeading.MinimumSize = new System.Drawing.Size(1, 1);
             this.rtbHeading.Modified = false;
@@ -259,7 +291,7 @@ namespace MyNotesApp
             stateProperties4.ForeColor = System.Drawing.Color.Empty;
             stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.rtbHeading.OnIdleState = stateProperties4;
-            this.rtbHeading.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.rtbHeading.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rtbHeading.PasswordChar = '\0';
             this.rtbHeading.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.rtbHeading.PlaceholderText = "Title";
@@ -269,7 +301,7 @@ namespace MyNotesApp
             this.rtbHeading.SelectionLength = 0;
             this.rtbHeading.SelectionStart = 0;
             this.rtbHeading.ShortcutsEnabled = true;
-            this.rtbHeading.Size = new System.Drawing.Size(914, 39);
+            this.rtbHeading.Size = new System.Drawing.Size(1219, 48);
             this.rtbHeading.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.rtbHeading.TabIndex = 5;
             this.rtbHeading.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -279,6 +311,7 @@ namespace MyNotesApp
             this.rtbHeading.TextPlaceholder = "Title";
             this.rtbHeading.UseSystemPasswordChar = false;
             this.rtbHeading.WordWrap = true;
+            this.rtbHeading.Validating += new System.ComponentModel.CancelEventHandler(this.rtbHeading_Validating);
             // 
             // richTextBox1
             // 
@@ -311,7 +344,8 @@ namespace MyNotesApp
             this.richTextBox1.IconRight = null;
             this.richTextBox1.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.richTextBox1.Lines = new string[0];
-            this.richTextBox1.Location = new System.Drawing.Point(3, 3);
+            this.richTextBox1.Location = new System.Drawing.Point(4, 4);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.richTextBox1.MaxLength = 32767;
             this.richTextBox1.MinimumSize = new System.Drawing.Size(1, 1);
             this.richTextBox1.Modified = false;
@@ -337,7 +371,7 @@ namespace MyNotesApp
             stateProperties8.ForeColor = System.Drawing.Color.Empty;
             stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.richTextBox1.OnIdleState = stateProperties8;
-            this.richTextBox1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.richTextBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.richTextBox1.PasswordChar = '\0';
             this.richTextBox1.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.richTextBox1.PlaceholderText = "Enter text";
@@ -347,7 +381,7 @@ namespace MyNotesApp
             this.richTextBox1.SelectionLength = 0;
             this.richTextBox1.SelectionStart = 0;
             this.richTextBox1.ShortcutsEnabled = true;
-            this.richTextBox1.Size = new System.Drawing.Size(910, 396);
+            this.richTextBox1.Size = new System.Drawing.Size(1213, 487);
             this.richTextBox1.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.richTextBox1.TabIndex = 5;
             this.richTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -364,45 +398,21 @@ namespace MyNotesApp
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlNotes.Controls.Add(this.richTextBox1);
-            this.pnlNotes.Location = new System.Drawing.Point(165, 60);
+            this.pnlNotes.Location = new System.Drawing.Point(220, 74);
+            this.pnlNotes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlNotes.Name = "pnlNotes";
-            this.pnlNotes.Size = new System.Drawing.Size(916, 403);
+            this.pnlNotes.Size = new System.Drawing.Size(1221, 496);
             this.pnlNotes.TabIndex = 5;
-            // 
-            // bunifuThinButton23
-            // 
-            this.bunifuThinButton23.ActiveBorderThickness = 1;
-            this.bunifuThinButton23.ActiveCornerRadius = 20;
-            this.bunifuThinButton23.ActiveFillColor = System.Drawing.Color.Green;
-            this.bunifuThinButton23.ActiveForecolor = System.Drawing.Color.Brown;
-            this.bunifuThinButton23.ActiveLineColor = System.Drawing.Color.Navy;
-            this.bunifuThinButton23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bunifuThinButton23.BackColor = System.Drawing.SystemColors.Control;
-            this.bunifuThinButton23.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton23.BackgroundImage")));
-            this.bunifuThinButton23.ButtonText = "Password Protect";
-            this.bunifuThinButton23.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuThinButton23.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuThinButton23.ForeColor = System.Drawing.Color.Honeydew;
-            this.bunifuThinButton23.IdleBorderThickness = 1;
-            this.bunifuThinButton23.IdleCornerRadius = 20;
-            this.bunifuThinButton23.IdleFillColor = System.Drawing.Color.DodgerBlue;
-            this.bunifuThinButton23.IdleForecolor = System.Drawing.Color.Honeydew;
-            this.bunifuThinButton23.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton23.Location = new System.Drawing.Point(819, 471);
-            this.bunifuThinButton23.Margin = new System.Windows.Forms.Padding(5);
-            this.bunifuThinButton23.Name = "bunifuThinButton23";
-            this.bunifuThinButton23.Size = new System.Drawing.Size(181, 41);
-            this.bunifuThinButton23.TabIndex = 8;
-            this.bunifuThinButton23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MyNotes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1113, 537);
+            this.ClientSize = new System.Drawing.Size(1484, 661);
             this.Controls.Add(this.pnlNotes);
             this.Controls.Add(this.panel1);
-            this.MinimumSize = new System.Drawing.Size(1129, 576);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MinimumSize = new System.Drawing.Size(1499, 698);
             this.Name = "MyNotes";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.MyNotes_Load);
