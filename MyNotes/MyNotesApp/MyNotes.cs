@@ -139,6 +139,7 @@ namespace MyNotesApp
                         richTextBox1.Text = noteData.Rows[i]["Content"].ToString();
                         LoadDropDownBtn(rtbHeading.Text, richTextBox1.Text);
                     }
+                    break;
                 }
                 rtbHeading.ReadOnly = true;
             }
@@ -384,6 +385,7 @@ namespace MyNotesApp
                                 form.Show();
                                 this.Hide();
                                 form.Closed += (s, args) => Application.Exit();
+                                break;
                             }
                         }
                     }
@@ -393,10 +395,12 @@ namespace MyNotesApp
 
         private void bunifuButton2_Click(object sender, EventArgs e)
         {
-            MyNotes form = new MyNotes(user);
-            form.Show();
-            this.Hide();
-            form.Closed += (s, args) => Application.Exit();
+            rtbHeading.Text = "";
+            richTextBox1.Text = "";
+            //MyNotes form = new MyNotes(user);
+            //form.Show();
+            //this.Hide();
+            //form.Closed += (s, args) => Application.Exit();
         }
         private void LoadDropDownBtn(string heading, string body)
         {
