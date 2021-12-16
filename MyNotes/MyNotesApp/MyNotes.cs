@@ -433,49 +433,58 @@ namespace MyNotesApp
 
         private void btnShare_Click(object sender, EventArgs e)
         {
-            //rtbHeading.Text, richTextBox1.Text
-            query = @"INSERT INTO Note(Username,Title,Content) VALUES(@user,@title,@content)";
-            param.Clear();
-            param.Add(new SqlParameter
+            string title = rtbHeading.Text;
+            if (title == "")
             {
-                ParameterName = "@content",
-                SqlDbType = SqlDbType.NText,
-                SqlValue = richTextBox1.Text
-            });
-            param.Add(new SqlParameter
+                MessageBox.Show("You need to have a note on reading mode to share");
+            }
+            else
             {
-                ParameterName = "@user",
-                SqlDbType = SqlDbType.NVarChar,
-                SqlValue = btnDropdown.SelectedValue.ToString()
-            });
-            param.Add(new SqlParameter
-            {
-                ParameterName = "@title",
-                SqlDbType = SqlDbType.NVarChar,
-                SqlValue = rtbHeading.Text
-            });
-
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(dbConnectionString))
+                query = @"INSERT INTO Note(Username,Title,Content) VALUES(@user,@title,@content)";
+                param.Clear();
+                param.Add(new SqlParameter
                 {
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    ParameterName = "@content",
+                    SqlDbType = SqlDbType.NText,
+                    SqlValue = richTextBox1.Text
+                });
+                param.Add(new SqlParameter
+                {
+                    ParameterName = "@user",
+                    SqlDbType = SqlDbType.NVarChar,
+                    SqlValue = btnDropdown.SelectedValue.ToString()
+                });
+                param.Add(new SqlParameter
+                {
+                    ParameterName = "@title",
+                    SqlDbType = SqlDbType.NVarChar,
+                    SqlValue = rtbHeading.Text
+                });
+
+                try
+                {
+                    using (SqlConnection connection = new SqlConnection(dbConnectionString))
                     {
-                        connection.Open();
-                        if (param != null)
-                            command.Parameters.AddRange(param.ToArray());
-                        command.ExecuteNonQuery();
-                        connection.Close();
-                        MessageBox.Show($"Note has been shared with {btnDropdown.SelectedValue.ToString()}");
+                        using (SqlCommand command = new SqlCommand(query, connection))
+                        {
+                            connection.Open();
+                            if (param != null)
+                                command.Parameters.AddRange(param.ToArray());
+                            command.ExecuteNonQuery();
+                            connection.Close();
+                            MessageBox.Show($"Note has been shared with {btnDropdown.SelectedValue.ToString()}");
+                        }
+
                     }
 
                 }
-
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            //rtbHeading.Text, richTextBox1.Text
+           
         }
     }
 }
