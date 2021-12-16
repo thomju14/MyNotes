@@ -31,6 +31,7 @@ namespace MyNotesApp
                 InitializeComponent();
                 this.Size = new Size(1200, 800);
                 user = username;
+                this.Text = user;
                 pnlNotes.AutoSize = true;
                 Notes.Clear();
             }
@@ -92,7 +93,7 @@ namespace MyNotesApp
                     Note.Click += Note_Click;
                     Notes.Add(Note);
 
-                    height += 105;
+                    height += 60;
                 }
             }
         }
@@ -342,6 +343,57 @@ namespace MyNotesApp
                 e.Cancel = false;
                 err.SetError(rtbHeading, null);
             }
+        }
+
+        private void bunifuButton1_Click(object sender, EventArgs e)
+        {
+            string title = rtbHeading.Text;
+            if (title == "")
+            {
+                MessageBox.Show("You need to have a note on reading mode to delete");
+            }
+            else
+            {
+                string query = "SELECT * from Note";
+                using (SqlConnection sqlConnection = new SqlConnection(dbConnectionString))
+                {
+                    using (SqlDataAdapter Adapter = new SqlDataAdapter(query, sqlConnection))
+                    {
+                        DataTable note = new DataTable();
+                        sqlConnection.Open();
+                        Adapter.Fill(note);
+                        sqlConnection.Close();
+
+
+                        for (int i = 0; i < note.Rows.Count; i++)
+                        {
+                            if (note.Rows[i]["Title"].ToString() == title)
+                            {
+                                sqlConnection.Open();
+                                query = "DELETE FROM Note WHERE Title='" + title + "'";
+                                SqlCommand sqlCmd = new SqlCommand(query, sqlConnection);
+                                sqlCmd.CommandType = CommandType.Text;
+                                sqlCmd.ExecuteNonQuery();
+                                MessageBox.Show("Note deleted successfully");
+                                sqlConnection.Close();
+
+                                MyNotes form = new MyNotes(user);
+                                form.Show();
+                                this.Hide();
+                                form.Closed += (s, args) => Application.Exit();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void bunifuButton2_Click(object sender, EventArgs e)
+        {
+            MyNotes form = new MyNotes(user);
+            form.Show();
+            this.Hide();
+            form.Closed += (s, args) => Application.Exit();
         }
     }
 }
